@@ -12,7 +12,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
-
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -78,7 +77,7 @@ public final class Consola extends JFrame implements KeyListener{
         panel.add(label);
         panel.add(label2);
         panel.add(getTexto());
-        
+
         add(panel,BorderLayout.NORTH);
         add(new JScrollPane(areaTerminal),BorderLayout.SOUTH);
         getTexto().addKeyListener(new KeyAdapter(){
@@ -104,6 +103,7 @@ public final class Consola extends JFrame implements KeyListener{
     }
     public void keyReleased(KeyEvent e) {
     }
+
     public void mensageSalida(final String cadena){
         try {
             if(cadena.equals("cls") ||cadena.equals("clear"))
@@ -128,22 +128,7 @@ public final class Consola extends JFrame implements KeyListener{
             areaTerminal.setText(e + ""); 
         }
     }
-    public Image getIconImage() {
-        try {
-            URL url = getClass().getResource("terminal.jpg");
-            if (url != null) {
-                Image iconoVentana = Toolkit.getDefaultToolkit().getImage(url);
-                return iconoVentana;
-            } else {
-                // Si la URL es nula, imprime un mensaje de error y devuelve null
-                System.err.println("No se pudo cargar la imagen del icono.");
-                return null;
-            }
-        } catch (Exception e) {
-            // Si ocurre alguna excepción, imprime el mensaje de error y devuelve null
-            System.err.println("Error al cargar la imagen del icono: " + e.getMessage());
-            return null;
-        }
-    }
+
+    
     
 }
